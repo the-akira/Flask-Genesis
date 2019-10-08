@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<div class="container principal mt-2 mb-2">
+		<hr>
+	    <h2>{{ page.title }}</h2>
+	    <p class="tag"><strong>Author:</strong> {{ page.author }}</p>
+	    <p class="tag"><strong>Postado em:</strong> {{ page.date }}</p>
+        {% with pages=pages  %}
+            {% include "_list.html" %}
+        {% endwith %}	    
+	    <hr>
+	    {{ page.html|safe }}
+    </div>
+{% endblock content %}

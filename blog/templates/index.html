@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2 class="text-center post-header">Blog Posts</h2>
+    <br>
+    <div class="list-group">
+        {% for post in posts %}
+            <a class="text-center post list-group-item mb-2 link" href="{{ url_for('page', path=post.path) }}">{{ post.title }}</a>
+        {% else %}
+            <li>Nenhum Post Disponível</li>
+        {% endfor %}
+    </div>
+{% endblock content %}

@@ -1,0 +1,10 @@
+<p class="tag">
+	{% if page.meta.tags|length %}
+	    <strong>Tags:</strong> 
+	    {% for page_tag in page.meta.tags %}
+	        <a class="link" href="{{ url_for('tag', tag=page_tag) }}">{{ page_tag }} </a>;
+	    {% endfor %}
+	{% endif %}
+</p>
+
+
