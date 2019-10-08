@@ -40,7 +40,7 @@ Install Requirements
 pip install -r requirements.txt
 ```
 
-Navigate do `blog` and Run the Application
+Navigate to `blog` and Run the Application
 
 ```
 python server.py
