@@ -10,7 +10,7 @@ A simple to use Static Site Generator made with **[Flask](https://flask.palletsp
 - Tags
 - Dates
 
-You can see an example here: **https://flaskgenesis.netlify.com/**
+You can see an example here: **https://flaskgenesis.netlify.com**
 
 ## Installation
 
@@ -52,6 +52,6 @@ To generate the static site you can run the following command
 python server.py build
 ```
 
-You can then navigate to `build` and run `python -m http.server` to see the website. 
+You can then navigate to `build` and run `python -m http.server` to see the website on your local machine. 
 
-You are able to easily deploy to [GitHub Pages](https://pages.github.com/), [GitLab Pages](https://about.gitlab.com/product/pages/), [Netlify](https://www.netlify.com/), [Heroku](https://www.heroku.com), [Python Anywhere](https://www.pythonanywhere.com/) and [Surge](https://surge.sh/)
+You are able to easily deploy to [GitHub Pages](https://pages.github.com/), [GitLab Pages](https://about.gitlab.com/product/pages/), [Netlify](https://www.netlify.com/), [Heroku](https://www.heroku.com), [Python Anywhere](https://www.pythonanywhere.com/) and [Surge](https://surge.sh/).

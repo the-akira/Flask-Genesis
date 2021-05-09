@@ -1,7 +1,7 @@
 from flask import Flask, render_template
 from flask_flatpages import FlatPages, pygments_style_defs
 from flask_frozen import Freezer
-import sys, os
+import sys
 
 # Configs
 DEBUG = True
@@ -22,12 +22,12 @@ freezer = Freezer(app)
 # URL Routing
 @app.route('/')
 def index():
-	posts = sorted(pages, reverse=True, key=lambda p: p.meta['date'])
-	return render_template('index.html', posts=posts)
+    posts = sorted(pages, reverse=True, key=lambda p: p.meta['date'])
+    return render_template('index.html', posts=posts)
 
 @app.route('/about/')
 def about():
-	return render_template('about.html')
+    return render_template('about.html')
 
 @app.route('/tag/<string:tag>/')
 def tag(tag):
