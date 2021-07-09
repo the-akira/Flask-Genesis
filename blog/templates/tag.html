@@ -4,12 +4,12 @@
     <h2 class="text-center post-header">Tag: <em>{{ tag }}</em></h2>
     <br>
     {% with pages=pages  %}
-		<ul class="list-group">
-		{% for page in pages %}
-		    <li>
-		        <a class="text-center post list-group-item mb-2 link" href="{{ url_for('page', path=page.path) }}">{{ page.title }}</a>
-		    </li>
-		{% endfor %}
-		</ul>
+        <ul class="list-group">
+        {% for page in pages %}
+            <li>
+                <a class="text-center post list-group-item mb-2 link" href="{{ url_for('page', path=page.path) }}">{{ page.title }}</a>
+            </li>
+        {% endfor %}
+        </ul>
     {% endwith %}
 {% endblock content %}

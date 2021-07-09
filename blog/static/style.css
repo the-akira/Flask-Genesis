@@ -1,132 +1,132 @@
 body{
-	/* background-image: url('/static/bg.png'); */
-	background-color: black;
-	opacity: 0.9;
+    /* background-image: url('/static/bg.png'); */
+    background-color: black;
+    opacity: 0.9;
 }
 
 .container{
-	margin-top: 50px;
-	margin-bottom: 50px;
-	background-color: #283133;
-	border-radius: 5px;
-	border: 1px solid white;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    background-color: #283133;
+    border-radius: 5px;
+    border: 1px solid white;
 }
 
 .navigation{
-	margin: 5px;
+    margin: 5px;
 }
 
 .avatar{
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
-	width: 60%;
-	opacity: 0.89 !important;
-	width: 220px;
-	height: 220px;
-	border: 2px solid black;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+    opacity: 0.89 !important;
+    width: 220px;
+    height: 220px;
+    border: 2px solid black;
 }
 
 a, p, h2, h5{
-	color: white;
+    color: white;
 }
 
 .tag{
-	margin-bottom: 1px;
+    margin-bottom: 1px;
 }
 
 .link{
-	transition: color 3s, opacity 2.5s;
+    transition: color 3s, opacity 2.5s;
 }
 
 .main{
-	font-family: 'Black Ops One', cursive;
-	font-size: 2.6rem;
+    font-family: 'Black Ops One', cursive;
+    font-size: 2.6rem;
 }
 
 .main:hover{
-	color: #4e6682;
-	text-decoration: none;
+    color: #4e6682;
+    text-decoration: none;
 }
 
 .link:hover{
-	color: #4e6682;
-	opacity: 0.6;
-	text-decoration: none;
+    color: #4e6682;
+    opacity: 0.6;
+    text-decoration: none;
 }
 
 .post-header{
-	color: white;
+    color: white;
 }
 
 .post{
-	padding: 20px;
-	background-color: black;
-	width: 65%;
-	margin: auto;
+    padding: 20px;
+    background-color: black;
+    width: 65%;
+    margin: auto;
 }
 
 hr{
-	border-top: 1px solid white;
+    border-top: 1px solid white;
 }
 
 .principal{
-	background-color: black;
-	width: 89%;
-	padding: 40px;
-	border: 1px solid gray;
+    background-color: black;
+    width: 89%;
+    padding: 40px;
+    border: 1px solid gray;
 }
 
 .social{
-	background-color: black;
-	width: 65%;
-	margin: auto;
-	margin-bottom: 50px;
-	padding: 20px;
-	border-radius: 5px;
+    background-color: black;
+    width: 65%;
+    margin: auto;
+    margin-bottom: 50px;
+    padding: 20px;
+    border-radius: 5px;
 }
 
 i{
-	margin-left: 10px;
-	margin-right: 10px;
-	padding: 5px;
-	color: white;
-	transition: color 1s;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 5px;
+    color: white;
+    transition: color 1s;
 }
 
 i:hover{
-	color: #4e6682;
-	cursor: pointer;
+    color: #4e6682;
+    cursor: pointer;
 }
 
 pre{
-	color: #695093 !important;
+    color: #695093 !important;
 }
 
 [alt]{
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
-	width: 70%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
 }
 
 table:not(.codehilitetable){
-	margin: auto;
-	width: 75%;
-	margin-bottom: 13px;
+    margin: auto;
+    width: 75%;
+    margin-bottom: 13px;
 }
 
 table:not(.codehilitetable) > thead > tr > th{
-	border: 1px solid white;
-	text-align: center;
-	color: white;
-	padding: 10px;
-	height: 50px;
+    border: 1px solid white;
+    text-align: center;
+    color: white;
+    padding: 10px;
+    height: 50px;
 }
 
 table:not(.codehilitetable) > tbody > tr > td{
-	border: 1px solid white;
-	text-align: left;
-	color: white;
-	padding: 10px;
+    border: 1px solid white;
+    text-align: left;
+    color: white;
+    padding: 10px;
 }
