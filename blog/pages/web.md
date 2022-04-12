@@ -16,6 +16,6 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
 
 	:::python
 	s.discard(1)
-	print(s) # {2, 3, 4}
+	print(s) # Este é um comentário {2, 3, 4}
 	for i in range(30):
 		print(i)
