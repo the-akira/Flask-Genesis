@@ -138,3 +138,10 @@ td.linenos pre{
 .codehilite .c1{
     color: #8cff00;
 }
+
+@media only screen and (max-width: 530px) {
+    .codehilitetable {
+        display: block;
+        overflow: scroll;
+    }
+}
