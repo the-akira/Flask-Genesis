@@ -142,6 +142,6 @@ td.linenos pre{
 @media only screen and (max-width: 530px) {
     .codehilitetable {
         display: block;
-        overflow: scroll;
+        overflow-x: scroll;
     }
 }
