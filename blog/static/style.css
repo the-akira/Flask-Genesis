@@ -139,9 +139,15 @@ td.linenos pre{
     color: #8cff00;
 }
 
-@media only screen and (max-width: 530px) {
+@media only screen and (max-width: 555px) {
     .codehilitetable {
         display: block;
         overflow-x: scroll;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .container {
+        width: 100%;
     }
 }
