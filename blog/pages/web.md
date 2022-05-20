@@ -1,4 +1,4 @@
-title: Python para Desenvolvimento Web
+title: Python Desenvolvimento Web
 date: 2018-05-03
 author: Gabriel Felippe
 tags: [programming, python, web development]
