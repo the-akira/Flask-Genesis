@@ -1,13 +1,60 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h2 class="text-center post-header">Blog Posts</h2>
+    <h2 class="text-center post-header">Blog Posts ({{ total_post }})</h2>
     <br>
     <div class="list-group">
-        {% for post in posts %}
-            <a class="text-center post list-group-item mb-2 link" href="{{ url_for('page', path=post.path) }}">{{ post.title }}</a>
-        {% else %}
-            <li>Nenhum Post Disponível</li>
-        {% endfor %}
+        <div id="pagination-container" class="text-center"></div>
+        <div class="text-center mt-3">
+            <button id="prev-page">Previous</button>
+            <button id="next-page">Next</button>
+        </div>
     </div>
+
+    <script>
+        $(document).ready(function() {
+            var posts = {{ posts | safe }};
+            var perPage = 4;
+            var currentPage = 1;
+
+            function displayPosts(page) {
+                $('#pagination-container').empty();
+                var start = (page - 1) * perPage;
+                var end = start + perPage;
+                var paginatedPosts = posts.slice(start, end);
+
+                $.each(paginatedPosts, function(index, post) {
+                    $('#pagination-container').append('<a class="text-center post list-group-item mb-2 link" href="' + post.path + '">' + post.title + '</a>');
+                });
+
+                currentPage = page;
+                toggleButtons(); // Chama a função para habilitar ou desabilitar os botões
+            }
+
+            displayPosts(currentPage);
+
+            $('#next-page').click(function() {
+                displayPosts(currentPage + 1);
+            });
+
+            $('#prev-page').click(function() {
+                displayPosts(currentPage - 1);
+            });
+
+            // Função para habilitar ou desabilitar os botões
+            function toggleButtons() {
+                if (currentPage <= 1) {
+                    $('#prev-page').prop('disabled', true);
+                } else {
+                    $('#prev-page').prop('disabled', false);
+                }
+
+                if (currentPage >= Math.ceil(posts.length / perPage)) {
+                    $('#next-page').prop('disabled', true);
+                } else {
+                    $('#next-page').prop('disabled', false);
+                }
+            }
+        });
+    </script>
 {% endblock content %}

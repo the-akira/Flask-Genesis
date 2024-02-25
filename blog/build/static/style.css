@@ -99,6 +99,26 @@ i:hover{
     cursor: pointer;
 }
 
+ul > li {
+    color: white;
+}
+
+#prev-page {
+    margin-right: 7px;
+}
+
+button[disabled] {
+    background-color: #1f1f1f !important;
+}
+
+#next-page, #prev-page {
+    background-color: black;
+    border: 1.5px solid white;
+    color: white;
+    padding: 8px 15px;
+    font-size: 1.2rem;
+}
+
 pre{
     color: #695093 !important;
 }
@@ -139,15 +159,15 @@ td.linenos pre{
     color: #8cff00;
 }
 
-@media only screen and (max-width: 555px) {
-    .codehilitetable {
-        display: block;
-        overflow-x: scroll;
-    }
-}
-
 @media only screen and (max-width: 767px) {
     .container {
         width: 100%;
+    }
+}
+
+@media only screen and (max-width: 1100px) {
+    .codehilitetable {
+        display: block;
+        overflow-x: scroll;
     }
 }

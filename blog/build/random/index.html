@@ -27,9 +27,9 @@
                 
     <div class="container principal mt-2 mb-2">
         <hr>
-        <h2>Python Machine Learning</h2>
+        <h2>Gerando Números Aleatórios em Python</h2>
         <p class="tag"><strong>Author:</strong> Gabriel Felippe</p>
-        <p class="tag"><strong>Postado em:</strong> 2018-05-03</p>
+        <p class="tag"><strong>Postado em:</strong> 2018-01-01</p>
         
             <p class="tag">
     
@@ -39,27 +39,38 @@
         
             <a class="link" href="/tag/python/">python </a>;
         
-            <a class="link" href="/tag/machine%20learning/">machine learning </a>;
-        
     
 </p>
         	    
         <hr>
-        <p>This is my <strong>first</strong> blog post ever! Welcome!</p>
-<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="hll"><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-</span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+        <p>Neste artigo, vamos aprender como gerar números aleatórios em Python usando a biblioteca padrão <code>random</code>.</p>
+<h2>Introdução</h2>
+<p>Gerar números aleatórios é uma tarefa comum em muitos programas e projetos de computação. Em Python, podemos facilmente gerar números aleatórios usando a biblioteca <code>random</code>.</p>
+<h2>Implementação em Python</h2>
+<p>Aqui está um exemplo simples de como gerar números aleatórios em Python:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
 
-<span class="c1"># Este é um comentário</span>
-<span class="hll"><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;dados.csv&#39;</span><span class="p">)</span>
-</span></pre></div>
+<span class="c1"># Gerando um número aleatório inteiro entre 1 e 100</span>
+<span class="n">numero_aleatorio</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+
+<span class="c1"># Gerando um número aleatório de ponto flutuante entre 0 e 1</span>
+<span class="n">numero_aleatorio_float</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span>
+
+<span class="c1"># Imprimindo os números aleatórios gerados</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Número aleatório inteiro: </span><span class="si">{</span><span class="n">numero_aleatorio</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Número aleatório de ponto flutuante: </span><span class="si">{</span><span class="n">numero_aleatorio_float</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
 </td></tr></table>
-
-<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
     </div>
 
                 <br>

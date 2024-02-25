@@ -1,7 +1,7 @@
 from flask import Flask, render_template
 from flask_flatpages import FlatPages, pygments_style_defs
 from flask_frozen import Freezer
-import sys
+import sys, json, datetime
 
 # Configs
 DEBUG = True
@@ -22,8 +22,16 @@ freezer = Freezer(app)
 # URL Routing
 @app.route('/')
 def index():
-    posts = sorted(pages, reverse=True, key=lambda p: p.meta['date'])
-    return render_template('index.html', posts=posts)
+    serialized_posts = [
+        {
+            'title': page.meta['title'],
+            'date': page.meta['date'].strftime('%Y-%m-%d'),
+            'path': page.path
+        }
+        for page in pages
+    ]
+    serialized_posts = sorted(serialized_posts, key=lambda p: p['date'], reverse=True)
+    return render_template('index.html', posts=json.dumps(serialized_posts), total_post=len(serialized_posts))
 
 @app.route('/about/')
 def about():
@@ -42,6 +50,19 @@ def page(path):
 @app.route('/pygments.css')
 def pygments_css():
     return pygments_style_defs('vim'), 200, {'Content-Type': 'text/css'}
+
+# Custom URL Generators
+@freezer.register_generator
+def generate_tag_urls():
+    for page in pages:
+        tags = page.meta.get('tags', [])
+        for tag in tags:
+            yield f'tag', {'tag': tag}
+
+@freezer.register_generator
+def generate_page_urls():
+    for page in pages:
+        yield f'page', {'path': page.path}
 
 # Main Function
 if __name__ == "__main__":

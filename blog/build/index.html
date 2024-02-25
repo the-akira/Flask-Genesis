@@ -11,6 +11,7 @@
     <link href="https://fonts.googleapis.com/css?family=Black+Ops+One&display=swap" rel="stylesheet"> 
     <script src="https://kit.fontawesome.com/abb211c046.js"></script>
     <title>Programming Blog</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -24,24 +25,65 @@
                 <img src="/static/img/avatar.png" class="rounded-circle img-thumbnail avatar mt-4">
                 <br>
                 
-    <h2 class="text-center post-header">Blog Posts</h2>
+    <h2 class="text-center post-header">Blog Posts (16)</h2>
     <br>
     <div class="list-group">
-        
-            <a class="text-center post list-group-item mb-2 link" href="/games/">Python Games Programming</a>
-        
-            <a class="text-center post list-group-item mb-2 link" href="/machine_learning/">Python Machine Learning</a>
-        
-            <a class="text-center post list-group-item mb-2 link" href="/web/">Python Desenvolvimento Web</a>
-        
-            <a class="text-center post list-group-item mb-2 link" href="/matematica/">Python &amp; Matemática</a>
-        
-            <a class="text-center post list-group-item mb-2 link" href="/fundamentos/">Python Fundamentos</a>
-        
+        <div id="pagination-container" class="text-center"></div>
+        <div class="text-center mt-3">
+            <button id="prev-page">Previous</button>
+            <button id="next-page">Next</button>
+        </div>
     </div>
 
+    <script>
+        $(document).ready(function() {
+            var posts = [{"title": "Python Games Programming", "date": "2018-06-02", "path": "games"}, {"title": "Python Machine Learning", "date": "2018-05-03", "path": "machine_learning"}, {"title": "Python Desenvolvimento Web", "date": "2018-05-03", "path": "web"}, {"title": "Python & Matem\u00e1tica", "date": "2018-05-03", "path": "matematica"}, {"title": "Trabalhando com Dicion\u00e1rios em Python", "date": "2018-01-01", "path": "dict"}, {"title": "Usando Loops em Python", "date": "2018-01-01", "path": "loops"}, {"title": "Criando e Usando Fun\u00e7\u00f5es em Python", "date": "2018-01-01", "path": "function"}, {"title": "Trabalhando com Listas em Python", "date": "2018-01-01", "path": "lists"}, {"title": "Calculando a Raiz Quadrada em Python", "date": "2018-01-01", "path": "raiz"}, {"title": "Usando Condicionais em Python", "date": "2018-01-01", "path": "ifelse"}, {"title": "Trabalhando com Strings em Python", "date": "2018-01-01", "path": "strings"}, {"title": "Lidando com Exce\u00e7\u00f5es em Python", "date": "2018-01-01", "path": "exceptions"}, {"title": "Calculando o Fatorial em Python", "date": "2018-01-01", "path": "fatorial"}, {"title": "Gerando N\u00fameros Aleat\u00f3rios em Python", "date": "2018-01-01", "path": "random"}, {"title": "Python Fundamentos", "date": "2018-01-01", "path": "fundamentos"}, {"title": "Leitura e Escrita de Arquivos em Python", "date": "2018-01-01", "path": "readwrite"}];
+            var perPage = 4;
+            var currentPage = 1;
+
+            function displayPosts(page) {
+                $('#pagination-container').empty();
+                var start = (page - 1) * perPage;
+                var end = start + perPage;
+                var paginatedPosts = posts.slice(start, end);
+
+                $.each(paginatedPosts, function(index, post) {
+                    $('#pagination-container').append('<a class="text-center post list-group-item mb-2 link" href="' + post.path + '">' + post.title + '</a>');
+                });
+
+                currentPage = page;
+                toggleButtons(); // Chama a função para habilitar ou desabilitar os botões
+            }
+
+            displayPosts(currentPage);
+
+            $('#next-page').click(function() {
+                displayPosts(currentPage + 1);
+            });
+
+            $('#prev-page').click(function() {
+                displayPosts(currentPage - 1);
+            });
+
+            // Função para habilitar ou desabilitar os botões
+            function toggleButtons() {
+                if (currentPage <= 1) {
+                    $('#prev-page').prop('disabled', true);
+                } else {
+                    $('#prev-page').prop('disabled', false);
+                }
+
+                if (currentPage >= Math.ceil(posts.length / perPage)) {
+                    $('#next-page').prop('disabled', true);
+                } else {
+                    $('#next-page').prop('disabled', false);
+                }
+            }
+        });
+    </script>
+
                 <br>
-                <h2 class="text-center post-header">Social Platforms</h2>
+                <h2 class="text-center post-header mt-2">Social Platforms</h2>
 <br>
 <div class="social text-center">
     <a href="https://github.com" target="_blank"><i class="fab fa-github fa-3x"></i></a>
@@ -50,7 +92,6 @@
             </div>
         </div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>

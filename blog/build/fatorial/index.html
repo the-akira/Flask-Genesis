@@ -1,0 +1,107 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="akira">
+    <meta name="description" content="akira blog">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="/pygments.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/static/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Black+Ops+One&display=swap" rel="stylesheet"> 
+    <script src="https://kit.fontawesome.com/abb211c046.js"></script>
+    <title>Programming Blog</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+                <div class="navigation">
+    <a class="text-center mt-5 mr-3 main" href="/">Home</a>
+    <a class="text-center mt-5 main" href="/about/">About</a>
+</div>
+                <img src="/static/img/avatar.png" class="rounded-circle img-thumbnail avatar mt-4">
+                <br>
+                
+    <div class="container principal mt-2 mb-2">
+        <hr>
+        <h2>Calculando o Fatorial em Python</h2>
+        <p class="tag"><strong>Author:</strong> Gabriel Felippe</p>
+        <p class="tag"><strong>Postado em:</strong> 2018-01-01</p>
+        
+            <p class="tag">
+    
+        <strong>Tags:</strong> 
+        
+            <a class="link" href="/tag/programming/">programming </a>;
+        
+            <a class="link" href="/tag/python/">python </a>;
+        
+    
+</p>
+        	    
+        <hr>
+        <p>Neste artigo, vamos aprender como calcular o fatorial de um número em Python. O fatorial de um número é o produto de todos os números inteiros positivos de 1 até o próprio número.</p>
+<h2>Introdução</h2>
+<p>Calcular o fatorial de um número é uma operação comum em programação e matemática. Em Python, podemos calcular o fatorial de forma eficiente usando um loop ou uma função recursiva.</p>
+<h2>Implementação em Python</h2>
+<p>Aqui está um exemplo simples de como calcular o fatorial de um número em Python:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">fatorial</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">n</span> <span class="o">*</span> <span class="n">fatorial</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Definindo o número do qual queremos calcular o fatorial</span>
+<span class="n">numero</span> <span class="o">=</span> <span class="mi">5</span>
+
+<span class="c1"># Calculando o fatorial usando a função fatorial()</span>
+<span class="n">resultado</span> <span class="o">=</span> <span class="n">fatorial</span><span class="p">(</span><span class="n">numero</span><span class="p">)</span>
+
+<span class="c1"># Imprimindo o resultado</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;O fatorial de </span><span class="si">{</span><span class="n">numero</span><span class="si">}</span><span class="s2"> é </span><span class="si">{</span><span class="n">resultado</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</td></tr></table>
+
+<h2>Explicação do Código</h2>
+<ul>
+<li>Criamos uma função <code>fatorial(n)</code> que calcula o fatorial de um número <code>n</code>.</li>
+<li>Se <code>n</code> for igual a 0, retornamos 1 (o fatorial de 0 é definido como 1).</li>
+<li>Caso contrário, calculamos o fatorial de <code>n</code> multiplicando <code>n</code> pelo fatorial de <code>n - 1</code>.</li>
+<li>Chamamos a função <code>fatorial(numero)</code> com o número desejado e imprimimos o resultado.</li>
+</ul>
+<h2>Conclusão</h2>
+<p>Calcular o fatorial de um número em Python é uma tarefa simples com o uso de funções recursivas. Esta técnica é útil em muitos cenários de programação e pode ser aplicada em uma variedade de problemas.</p>
+<p>Experimente calcular o fatorial de diferentes números e explore outras técnicas de programação em Python!</p>
+<p>Espero que este mini-tutorial seja útil para você aprender como calcular o fatorial em Python!</p>
+    </div>
+
+                <br>
+                <h2 class="text-center post-header mt-2">Social Platforms</h2>
+<br>
+<div class="social text-center">
+    <a href="https://github.com" target="_blank"><i class="fab fa-github fa-3x"></i></a>
+    <a href="https://cc33z.pythonanywhere.com" target="_blank"><i class="fas fa-globe fa-3x"></i></a>
+</div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>
