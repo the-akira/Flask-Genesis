@@ -56,4 +56,4 @@ python server.py build
 
 You can then navigate to `build` and run `python -m http.server` to see the website on your local machine. 
 
-You are able to easily deploy to [GitHub Pages](https://pages.github.com/), [GitLab Pages](https://about.gitlab.com/product/pages/), [Netlify](https://www.netlify.com/), [Heroku](https://www.heroku.com), [Python Anywhere](https://www.pythonanywhere.com/) or [Surge](https://surge.sh/).
+You are able to easily deploy to [GitHub Pages](https://pages.github.com/), [GitLab Pages](https://about.gitlab.com/product/pages/), [Netlify](https://www.netlify.com/), [Python Anywhere](https://www.pythonanywhere.com/) or [Surge](https://surge.sh/).
