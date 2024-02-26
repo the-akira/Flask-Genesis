@@ -1,5 +1,5 @@
-title: Leitura e Escrita de Arquivos em Python
-date: 2018-01-01
+title: Trabalhando com Arquivos em Python
+date: 2018-09-15
 author: Gabriel Felippe
 tags: [programming, python]
 

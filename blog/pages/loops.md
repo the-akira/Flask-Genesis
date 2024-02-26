@@ -1,4 +1,4 @@
-title: Usando Loops em Python
+title: Trabalhando com Loops em Python
 date: 2018-01-01
 author: Gabriel Felippe
 tags: [programming, python]

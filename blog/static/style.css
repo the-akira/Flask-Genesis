@@ -67,6 +67,27 @@ a, p, h2, h5{
     margin: auto;
 }
 
+#search-input {
+    width: 65%;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 20px;
+    height: 40px;
+    border: 1.5px solid white;
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+}
+
+::placeholder {
+    color: #b8b8b8;
+}
+
+#no-results {
+    color: white;
+}
+
 hr{
     border-top: 1px solid white;
 }
@@ -103,6 +124,11 @@ ul > li {
     color: white;
 }
 
+small {
+    color: white;
+    font-size: 0.9rem;
+}
+
 #prev-page {
     margin-right: 7px;
 }
@@ -117,6 +143,7 @@ button[disabled] {
     color: white;
     padding: 8px 15px;
     font-size: 1.2rem;
+    border-radius: 5px;
 }
 
 pre{

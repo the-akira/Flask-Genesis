@@ -4,7 +4,9 @@
     <h2 class="text-center post-header">Blog Posts ({{ total_post }})</h2>
     <br>
     <div class="list-group">
+        <input type="text" id="search-input" placeholder="Search posts...">
         <div id="pagination-container" class="text-center"></div>
+        <div id="no-results" class="text-center" style="display: none;">No results found.</div>
         <div class="text-center mt-3">
             <button id="prev-page">Previous</button>
             <button id="next-page">Next</button>
@@ -16,30 +18,22 @@
             var posts = {{ posts | safe }};
             var perPage = 4;
             var currentPage = 1;
+            var filteredPosts = []; // Array para armazenar os posts filtrados
 
             function displayPosts(page) {
                 $('#pagination-container').empty();
                 var start = (page - 1) * perPage;
                 var end = start + perPage;
-                var paginatedPosts = posts.slice(start, end);
+                var paginatedPosts = filteredPosts.slice(start, end);
 
                 $.each(paginatedPosts, function(index, post) {
+                    $('#pagination-container').append('<small>' + post.date + '</small>');
                     $('#pagination-container').append('<a class="text-center post list-group-item mb-2 link" href="' + post.path + '">' + post.title + '</a>');
                 });
 
                 currentPage = page;
                 toggleButtons(); // Chama a função para habilitar ou desabilitar os botões
             }
-
-            displayPosts(currentPage);
-
-            $('#next-page').click(function() {
-                displayPosts(currentPage + 1);
-            });
-
-            $('#prev-page').click(function() {
-                displayPosts(currentPage - 1);
-            });
 
             // Função para habilitar ou desabilitar os botões
             function toggleButtons() {
@@ -49,12 +43,46 @@
                     $('#prev-page').prop('disabled', false);
                 }
 
-                if (currentPage >= Math.ceil(posts.length / perPage)) {
+                if (filteredPosts.length <= currentPage * perPage) {
                     $('#next-page').prop('disabled', true);
                 } else {
                     $('#next-page').prop('disabled', false);
                 }
             }
+
+            // Event listener para o campo de busca
+            $('#search-input').on('input', function() {
+                var searchTerm = $(this).val().toLowerCase();
+
+                filteredPosts = posts.filter(function(post) {
+                    return post.title.toLowerCase().includes(searchTerm);
+                });
+
+                if (filteredPosts.length === 0) {
+                    $('#no-results').show(); // Exibir mensagem de nenhum resultado
+                    $('#pagination-container').empty(); // Limpar a lista de posts
+                } else {
+                    $('#no-results').hide(); // Esconder mensagem de nenhum resultado
+                    displayPosts(1); // Exibe os resultados na primeira página após a pesquisa
+                }
+            });
+
+            // Event listener para o botão Previous
+            $('#prev-page').click(function() {
+                if (currentPage > 1) {
+                    displayPosts(currentPage - 1);
+                }
+            });
+
+            // Event listener para o botão Next
+            $('#next-page').click(function() {
+                if (filteredPosts.length > currentPage * perPage) {
+                    displayPosts(currentPage + 1);
+                }
+            });
+
+            // Inicialmente, verifica se há resultados ao carregar a página
+            $('#search-input').trigger('input');
         });
     </script>
 {% endblock content %}

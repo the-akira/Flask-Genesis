@@ -1,5 +1,5 @@
 title: Gerando Números Aleatórios em Python
-date: 2018-01-01
+date: 2018-09-01
 author: Gabriel Felippe
 tags: [programming, python]
 

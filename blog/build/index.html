@@ -28,7 +28,9 @@
     <h2 class="text-center post-header">Blog Posts (16)</h2>
     <br>
     <div class="list-group">
+        <input type="text" id="search-input" placeholder="Search posts...">
         <div id="pagination-container" class="text-center"></div>
+        <div id="no-results" class="text-center" style="display: none;">No results found.</div>
         <div class="text-center mt-3">
             <button id="prev-page">Previous</button>
             <button id="next-page">Next</button>
@@ -37,33 +39,25 @@
 
     <script>
         $(document).ready(function() {
-            var posts = [{"title": "Python Games Programming", "date": "2018-06-02", "path": "games"}, {"title": "Python Machine Learning", "date": "2018-05-03", "path": "machine_learning"}, {"title": "Python Desenvolvimento Web", "date": "2018-05-03", "path": "web"}, {"title": "Python & Matem\u00e1tica", "date": "2018-05-03", "path": "matematica"}, {"title": "Trabalhando com Dicion\u00e1rios em Python", "date": "2018-01-01", "path": "dict"}, {"title": "Usando Loops em Python", "date": "2018-01-01", "path": "loops"}, {"title": "Criando e Usando Fun\u00e7\u00f5es em Python", "date": "2018-01-01", "path": "function"}, {"title": "Trabalhando com Listas em Python", "date": "2018-01-01", "path": "lists"}, {"title": "Calculando a Raiz Quadrada em Python", "date": "2018-01-01", "path": "raiz"}, {"title": "Usando Condicionais em Python", "date": "2018-01-01", "path": "ifelse"}, {"title": "Trabalhando com Strings em Python", "date": "2018-01-01", "path": "strings"}, {"title": "Lidando com Exce\u00e7\u00f5es em Python", "date": "2018-01-01", "path": "exceptions"}, {"title": "Calculando o Fatorial em Python", "date": "2018-01-01", "path": "fatorial"}, {"title": "Gerando N\u00fameros Aleat\u00f3rios em Python", "date": "2018-01-01", "path": "random"}, {"title": "Python Fundamentos", "date": "2018-01-01", "path": "fundamentos"}, {"title": "Leitura e Escrita de Arquivos em Python", "date": "2018-01-01", "path": "readwrite"}];
+            var posts = [{"title": "Trabalhando com Arquivos em Python", "date": "2018-09-15", "path": "readwrite"}, {"title": "Gerando N\u00fameros Aleat\u00f3rios em Python", "date": "2018-09-01", "path": "random"}, {"title": "Python Games Programming", "date": "2018-06-02", "path": "games"}, {"title": "Python Machine Learning", "date": "2018-05-03", "path": "machine_learning"}, {"title": "Python Desenvolvimento Web", "date": "2018-05-03", "path": "web"}, {"title": "Python & Matem\u00e1tica", "date": "2018-05-03", "path": "matematica"}, {"title": "Trabalhando com Dicion\u00e1rios em Python", "date": "2018-01-01", "path": "dict"}, {"title": "Trabalhando com Loops em Python", "date": "2018-01-01", "path": "loops"}, {"title": "Criando e Usando Fun\u00e7\u00f5es em Python", "date": "2018-01-01", "path": "function"}, {"title": "Trabalhando com Listas em Python", "date": "2018-01-01", "path": "lists"}, {"title": "Calculando a Raiz Quadrada em Python", "date": "2018-01-01", "path": "raiz"}, {"title": "Usando Condicionais em Python", "date": "2018-01-01", "path": "ifelse"}, {"title": "Trabalhando com Strings em Python", "date": "2018-01-01", "path": "strings"}, {"title": "Lidando com Exce\u00e7\u00f5es em Python", "date": "2018-01-01", "path": "exceptions"}, {"title": "Calculando o Fatorial em Python", "date": "2018-01-01", "path": "fatorial"}, {"title": "Python Fundamentos", "date": "2018-01-01", "path": "fundamentos"}];
             var perPage = 4;
             var currentPage = 1;
+            var filteredPosts = []; // Array para armazenar os posts filtrados
 
             function displayPosts(page) {
                 $('#pagination-container').empty();
                 var start = (page - 1) * perPage;
                 var end = start + perPage;
-                var paginatedPosts = posts.slice(start, end);
+                var paginatedPosts = filteredPosts.slice(start, end);
 
                 $.each(paginatedPosts, function(index, post) {
+                    $('#pagination-container').append('<small>' + post.date + '</small>');
                     $('#pagination-container').append('<a class="text-center post list-group-item mb-2 link" href="' + post.path + '">' + post.title + '</a>');
                 });
 
                 currentPage = page;
                 toggleButtons(); // Chama a função para habilitar ou desabilitar os botões
             }
-
-            displayPosts(currentPage);
-
-            $('#next-page').click(function() {
-                displayPosts(currentPage + 1);
-            });
-
-            $('#prev-page').click(function() {
-                displayPosts(currentPage - 1);
-            });
 
             // Função para habilitar ou desabilitar os botões
             function toggleButtons() {
@@ -73,12 +67,46 @@
                     $('#prev-page').prop('disabled', false);
                 }
 
-                if (currentPage >= Math.ceil(posts.length / perPage)) {
+                if (filteredPosts.length <= currentPage * perPage) {
                     $('#next-page').prop('disabled', true);
                 } else {
                     $('#next-page').prop('disabled', false);
                 }
             }
+
+            // Event listener para o campo de busca
+            $('#search-input').on('input', function() {
+                var searchTerm = $(this).val().toLowerCase();
+
+                filteredPosts = posts.filter(function(post) {
+                    return post.title.toLowerCase().includes(searchTerm);
+                });
+
+                if (filteredPosts.length === 0) {
+                    $('#no-results').show(); // Exibir mensagem de nenhum resultado
+                    $('#pagination-container').empty(); // Limpar a lista de posts
+                } else {
+                    $('#no-results').hide(); // Esconder mensagem de nenhum resultado
+                    displayPosts(1); // Exibe os resultados na primeira página após a pesquisa
+                }
+            });
+
+            // Event listener para o botão Previous
+            $('#prev-page').click(function() {
+                if (currentPage > 1) {
+                    displayPosts(currentPage - 1);
+                }
+            });
+
+            // Event listener para o botão Next
+            $('#next-page').click(function() {
+                if (filteredPosts.length > currentPage * perPage) {
+                    displayPosts(currentPage + 1);
+                }
+            });
+
+            // Inicialmente, verifica se há resultados ao carregar a página
+            $('#search-input').trigger('input');
         });
     </script>
 
