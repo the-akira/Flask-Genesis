@@ -8,6 +8,7 @@ A simple to use Static Site Generator made with **[Flask](https://flask.palletsp
 
 - Markdown Support
 - Syntax Highlighting
+- Search & Pagination
 - Tables
 - Tags
 - Dates

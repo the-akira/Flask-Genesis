@@ -31,7 +31,7 @@ def index():
         for page in pages
     ]
     serialized_posts = sorted(serialized_posts, key=lambda p: p['date'], reverse=True)
-    return render_template('index.html', posts=json.dumps(serialized_posts), total_post=len(serialized_posts))
+    return render_template('index.html', posts=json.dumps(serialized_posts))
 
 @app.route('/about/')
 def about():
