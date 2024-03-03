@@ -13,7 +13,7 @@ A simple to use Static Site Generator made with **[Flask](https://flask.palletsp
 - Tags
 - Dates
 
-You can see an working example here: **[flaskgenesis.netlify.app](https://flaskgenesis.netlify.app)**
+You can see a working example here: **[flaskgenesis.netlify.app](https://flaskgenesis.netlify.app)**
 
 ## Installation
 
