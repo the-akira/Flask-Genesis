@@ -74,10 +74,13 @@ a, p, h2, h5{
     margin-left: auto;
     margin-bottom: 20px;
     height: 40px;
-    border: 1.5px solid white;
+    border: 1.5px solid black;
     background-color: black;
     color: white;
-    border-radius: 5px;
+}
+
+#search-input:focus {
+    outline: none;
 }
 
 ::placeholder {
