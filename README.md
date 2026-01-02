@@ -2,7 +2,7 @@
 
 ![img](Avatar.png)
 
-A simple to use Static Site Generator made with **[Flask](https://flask.palletsprojects.com/en/1.1.x/)**, **[Flask-FlatPages](https://flask-flatpages.readthedocs.io/en/v0.7.1/)** and **[Frozen-Flask](https://pythonhosted.org/Frozen-Flask/)**.
+A simple to use Static Site Generator made with **[Flask](https://flask.palletsprojects.com/en/stable/)**, **[Flask-FlatPages](https://flask-flatpages.readthedocs.io/en/latest/index.html)** and **[Frozen-Flask](https://frozen-flask.readthedocs.io/en/latest/)**.
 
 ## Features
 
